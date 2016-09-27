@@ -7,44 +7,18 @@
         "Description":"Define the Name of the VPC",
         "Type": "String"
     },
-    "VPCCidrBlock":{
+    "VPCCIDR":{
         "Description":"Define the CIDR Block for the VPC",
         "Type": "String"
-    },
-    "SubnetPrivateA_CIDR": {
-      "Description": "CIDR block for Private Subnet A",
-      "Type": "String",
-      "Default": ""
-    },
-    "CIDRPrivateB": {
-      "Description": "CIDR block for Private Subnet B",
-      "Type": "String",
-      "Default": ""
-    },
-    "CIDRPublicA": {
-      "Description": "CIDR block for Public Zone A",
-      "Type": "String",
-      "Default": ""
-    },
-    "CIDRPublicB": {
-      "Description": "CIDR block for Public Zone B",
-      "Type": "String",
-      "Default": ""
-
+    }
 },
-
   "Resources": {
     "VPC": {
       "Type": "AWS::EC2::VPC",
-      "Properties": {
-        "CidrBlock": {"Ref": "CidrBlockVPC"},
-        "EnableDnsHostnames": "true",
-        "Tags": [{
-          "key": "Name",
-          "value": ""
-        }]
-
-        }    
-      }
+            "Properties": {
+              "CidrBlock": {
+                "Ref": "VPCCIDR"
+              }
+            }    
+  }}
   }
-}
